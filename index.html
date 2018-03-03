@@ -16,13 +16,26 @@
 		<div class="game-area">
 		    <h1>Totally Trivial Trivia!</h1>
 		        <button id="start-btn">Start</button>
+		        <!-- Game Timer -->
+			<p id="timer_line">Time Remaining: <span id = "timer_number">120 Seconds</span></p>
 		        
 		      </div>
+		      <br>
+		      <button id = "done_button">Done!</button>
 		</div>  
 	</div>
+
+	<div id = "end_container">
+
+			<h1 id = "done">All Done!</h1>
+			<br>
+
+			<h1>Correct Answers: <span id = "correct_answers">0</span></h1>
+			<h1>Incorrect Answers: <span id = wrong_answers>0</span></h1>
+			<h1>Unanswered: <span id = "unanswered">0</span></h1>
 </div>
 
-	<!-- Link to javascript game.js -->
+	<!-- Link to jQuery and javascript game.js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 

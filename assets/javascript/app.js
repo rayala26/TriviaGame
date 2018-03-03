@@ -41,18 +41,49 @@ $(document).ready(function() {
       var wrongGuesses =0;
       var timer = 120;
       var gameArea = $(".game-area");
+      $("#done_button").hide();
+      $("#end_container").hide();
+      $("#timer_line").hide();
       //user clicks on the start button
       $("#start-btn").on("click", function(){
         $("#start-btn").hide();
+        $("#done_button").show();
+        $("#timer_line").show();
         for(var i=0; i < questions.length; i++) {
             gameArea.append("<p>" + questions[i].question +"</p>");
             for(var j=0; j< questions[i].answers.length; j++){
-                // <input type="radio" name="gender" value="male" checked> Male<br>
-                gameArea.append("<input type='radio' name="+i+" value="+ questions[i].answers[j]+">"+questions[i].answers[j]+"</input>")
+                // radio example:<input type="radio" name="gender" value="male" checked> Male<br>
+                gameArea.append("<input type='radio' name="+i+" value="+ questions[i].answers[j] + ">" +questions[i].answers[j]+"</input>")
             }
-        }
-        
-       
+        } 
       })
+      startCountdown();
+      return;
     })
-      //start button disappears
+
+    //start button disappears
+
+    function countdown(){
+      timer--;
+      $("#timer_line").html(timer + "Seconds")
+    
+
+      $("#done_button").on("click", function(){
+        timer = 0;
+        return;
+      });
+
+      if(timer == -1){
+        timeUp();
+        $("#game-area").hide();
+      }
+  }
+
+  function startCountdown(){
+    setInterval(countdown, 1000);
+  }
+
+  
+
+
+
